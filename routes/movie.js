@@ -3,6 +3,31 @@ const router = express.Router();
 //Models
 const Movie = require('../models/Movie');
 
+router.get('/', (req, res) => {
+	const promise = Movie.aggregate([
+		{
+			$lookup: {
+				from: 'directors',
+				localField: 'director_id',
+				foreignField: '_id',
+				as: 'director'
+			}
+		},
+		{
+			$unwind: {
+				path: '$director',
+				preserveNullAndEmptyArrays: true
+			}
+		}
+	]);
+
+	promise.then((data) => {
+		res.json(data);
+	}).catch((err) => {
+		res.json(err);
+	})
+});
+
 // Top 10 list
 router.get('/top10', (req, res) => {
 	const promise = Movie.find({ }).limit(10).sort({ imdb_score: -1 });
