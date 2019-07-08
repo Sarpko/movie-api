@@ -64,14 +64,6 @@ router.delete('/:movie_id', (req, res, next) => {
 
 
 router.post('/', function(req, res, next) {
-   //const {title, imdb_score, category, country, year} = req.body;
-  
-  //  movie.save((err, data) =>{
-  //    if(err)
-  //     res.json(err);
-  //    res.json(data)
-  //  });
-
 
 const movie = new Movie(req.body);
 const promise = movie.save();
@@ -81,6 +73,13 @@ promise.then((data) =>{
     res.json(err);
   });
 });
+   //const {title, imdb_score, category, country, year} = req.body;
+  
+  //  movie.save((err, data) =>{
+  //    if(err)
+  //     res.json(err);
+  //    res.json(data)
+  //  });
 
 
 // Between
