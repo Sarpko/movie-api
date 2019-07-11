@@ -12,11 +12,6 @@ it('(GET / ) anasayfayi dondurur', (done)=>{
 			.end((err, res) => {
                 res.should.have.status(200);
                 done();
-            });
-            
-            ai.request(server)
-			.get('/')
-			.end((err, res) => {
-                res.should.have.s
+			});
 });
 });
