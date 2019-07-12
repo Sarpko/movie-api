@@ -1,3 +1,5 @@
+[![Build status:](https://api.travis-ci.org/Sarpko/movie-api.svg?branch=master)](https://travis-ci.org/Sarpko/movie-api)
+
 # Movies
  
 | Route | HTTP Verb | POST body | Description |
